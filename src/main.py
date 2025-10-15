@@ -81,3 +81,30 @@ for i in range(9):
     print(line)
 
 print('\t0\t1 2 3 4 5 6 7 8 9')
+
+print('\nзадание 4: диаграмма соотношения: сумма по модулю первых 125 чисел и вторых 125 чисел\n')
+
+file = open('sequence.txt', 'r')
+list = []
+for number in file:
+    list.append(float(number))
+file.close()
+
+if len(list) >= 250:
+    sum_first_125 = sum(abs(x) for x in list[:125])
+    sum_second_125 = sum(abs(x) for x in list[125:250])
+    
+    total_sum = sum_first_125 + sum_second_125
+    
+    percent_first = (sum_first_125 / total_sum) * 100
+    percent_second = (sum_second_125 / total_sum) * 100
+
+    length = 50
+    
+    first_bars = int(percent_first * length / 100)
+    second_bars = int(percent_second * length / 100)
+    
+    print("Первые 125 чисел: ", end="")
+    print("█" * first_bars + f" {percent_first:.1f}%")
+    print("Вторые 125 чисел: ", end="")
+    print("█" * second_bars + f" {percent_second:.1f}%")
