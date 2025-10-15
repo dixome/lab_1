@@ -84,7 +84,7 @@ print('\t0\t1 2 3 4 5 6 7 8 9')
 
 print('\nзадание 4: диаграмма соотношения: сумма по модулю первых 125 чисел и вторых 125 чисел\n')
 
-file = open('sequence.txt', 'r')
+file = open('src/sequence.txt', 'r')
 list = []
 for number in file:
     list.append(float(number))
