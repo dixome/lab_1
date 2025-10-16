@@ -55,16 +55,17 @@ result = [0 for i in range(10)]
 for i in range(10):
     result[i] = 2 * i + 3
 
-step = round(abs(result[0] - result[9]) / 9, 2)
+start_y = 3
+step_y = 2
 
 for i in range(10):
     for j in range(10):
         if j == 0:
-            plot_list[i][j] = step * (8 - i) + step
+            plot_list[i][j] = start_y + step_y * (8 - i)
 
 for i in range(9):
     for j in range(10):
-        if abs(plot_list[i][0] - result[9 - j]) < step:
+        if abs(plot_list[i][0] - result[9 - j]) < step_y:
             for k in range(9):
                 if 8 - k == j:
                     plot_list[i][k + 1] = 1
@@ -109,75 +110,75 @@ if len(list) >= 250:
     print("Вторые 125 чисел: ", end="")
     print("█" * second_bars + f" {percent_second:.1f}%")
 
-print('допольнительное задание: анимация')
+# print('допольнительное задание: анимация')
 
-import os
-import time
+# import os
+# import time
 
-def clear_console():
-    os.system('cls' if os.name == 'nt' else 'clear')
+# def clear_console():
+#     os.system('cls' if os.name == 'nt' else 'clear')
 
-def heart():    
-    frames = [
-        [
-            "              ",
-            "              ",
-            "              ",
-            "      █ █     ",
-            "     █████    ",
-            "      ███     ",
-            "       █      ",
-            "              ",
-            "              "
-        ],
-        [
-            "              ",
-            "              ",
-            "    ██  ██    ",
-            "   ████████   ",
-            "    ██████    ",
-            "     ████     ",
-            "      ██      ",
-            "              ",
-            "              "
-        ],
-        [
-            " ███      ███ ",
-            "█████    █████",
-            "██████  ██████",
-            " ████████████ ",
-            "  ██████████  ",
-            "   ████████   ",
-            "    ██████    ",
-            "     ████     ",
-            "      ██      "
-        ]
-    ]
+# def heart():    
+#     frames = [
+#         [
+#             "              ",
+#             "              ",
+#             "              ",
+#             "      █ █     ",
+#             "     █████    ",
+#             "      ███     ",
+#             "       █      ",
+#             "              ",
+#             "              "
+#         ],
+#         [
+#             "              ",
+#             "              ",
+#             "    ██  ██    ",
+#             "   ████████   ",
+#             "    ██████    ",
+#             "     ████     ",
+#             "      ██      ",
+#             "              ",
+#             "              "
+#         ],
+#         [
+#             " ███      ███ ",
+#             "█████    █████",
+#             "██████  ██████",
+#             " ████████████ ",
+#             "  ██████████  ",
+#             "   ████████   ",
+#             "    ██████    ",
+#             "     ████     ",
+#             "      ██      "
+#         ]
+#     ]
     
-    colors = [198, 196, 160]
-    frame_count = 0
-    while True:
-        clear_console()
+#     colors = [198, 196, 160]
+#     frame_count = 0
+#     while True:
+#         clear_console()
         
-        color = colors[frame_count % len(colors)]
-        current_frame = frames[frame_count % len(frames)]
+#         color = colors[frame_count % len(colors)]
+#         current_frame = frames[frame_count % len(frames)]
         
-        print(f"\nдополнительное задание: анимация \n")
+#         print(f"\nдополнительное задание: анимация \n")
         
-        for line in current_frame:
-            colored_line = ""
-            for char in line:
-                if char == '█':
-                    colored_line += f'\x1b[38;5;{color}m{char}\x1b[0m'
-                else:
-                    colored_line += char
-            print(f"{' ' * 20}{colored_line}")
+#         for line in current_frame:
+#             colored_line = ""
+#             for char in line:
+#                 if char == '█':
+#                     colored_line += f'\x1b[38;5;{color}m{char}\x1b[0m'
+#                 else:
+#                     colored_line += char
+#             print(f"{' ' * 20}{colored_line}")
         
-        frame_count += 1
-        time.sleep(0.5)
+#         frame_count += 1
+#         time.sleep(0.5)
 
-if __name__ == "__main__":
-    try:
-        heart()
-    except KeyboardInterrupt:
-        clear_console()
+# if __name__ == "__main__":
+#     try:
+#         heart()
+#     except KeyboardInterrupt:
+#         clear_console()
